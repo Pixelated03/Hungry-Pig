@@ -1,0 +1,13 @@
+getgenv().AutoBearTrapPigs=true
+while AutoBearTrapPigs do
+	local l=workspace.Pigs:GetChildren()
+	for _,v in pairs(l)do
+		pcall(function()
+			game.ReplicatedStorage.BearTrap:FireServer(v.PrimaryPart.Position-Vector3.new(0,v.PrimaryPart.Position.Y/2.2,0))
+		end)
+		game['Run Service'].RenderStepped:Wait()
+	end
+	if #l==0 then
+		task.wait()
+	end
+end
