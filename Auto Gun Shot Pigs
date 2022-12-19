@@ -1,0 +1,8 @@
+getgenv().AutoShotPigs=true
+while AutoShotPigs and task.wait()do
+	for _,v in pairs(workspace.Pigs:GetChildren())do
+		pcall(function()
+			game.Players.LocalPlayer.Character['Pistol 0'].RemoteEvent:FireServer(v.Head)
+		end)
+	end
+end
