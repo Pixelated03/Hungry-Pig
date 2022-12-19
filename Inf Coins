@@ -1,0 +1,1 @@
+game.ReplicatedStorage.PurchasePet:FireServer("rbxassetid://11730038806","BearTrap",-math.huge)
