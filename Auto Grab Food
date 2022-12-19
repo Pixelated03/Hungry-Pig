@@ -1,0 +1,25 @@
+getgenv().AutoCollectPiggyFood3=true
+local a,C=game.Players.LocalPlayer,{}
+while AutoCollectPiggyFood3 and task.wait()do
+	for _,v in pairs(workspace.Pigs:GetChildren())do
+		local f=v:FindFirstChild'Food'
+		if f and not table.find(C,f) then
+			table.insert(C,f)
+		end
+	end
+	for _,f in pairs(C)do
+		pcall(function()
+			if not f.FoodWeldConstraint.Part1 then
+				local c=a.Character or a.CharacterAdded:Wait()
+				local p=c.PrimaryPart
+				if p then
+					coroutine.wrap(function()
+						firetouchinterest(p,f.Parent.Hitbox,0)
+						firetouchinterest(p,f.Parent.Hitbox,1)
+					end)()
+				end
+			end
+		end)
+	end
+end
+table.clear(C)
