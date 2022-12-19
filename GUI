@@ -31,7 +31,7 @@ btns:Toggle("Auto Gun Shot Pigs", false, function(e)
 end)
 
 local btns = serv:Channel("Player")
-btns:Slider("WalkSpeed", 20, 40, 20, function(g)
+btns:Slider("WalkSpeed", 20, 100, 20, function(g)
 	local h=game.Players.LocalPlayer.Character
 	if h then
 		local i=h:FindFirstChildOfClass("Humanoid")
