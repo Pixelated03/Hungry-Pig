@@ -1,0 +1,8 @@
+--|Collect RainbowBoxes with tp
+local c=game.Players.LocalPlayer.Character
+for _,v in pairs(workspace.RainbowBoxes:GetChildren())do
+	if c then
+		game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(v.CFrame)
+		task.wait(.1)
+	end
+end
